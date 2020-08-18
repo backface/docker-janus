@@ -93,7 +93,7 @@ COPY conf/*.jcfg /opt/janus/etc/janus/
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY certs /opt/certs
 
-EXPOSE 8088 8089 8188 8989 5002 5004 8002 8004
+EXPOSE 8088 8089 8188 8989 7088 7889 5002 5004 8002 8004
 
 CMD nginx && /opt/janus/bin/janus
 
