@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# ensure we're up to date
-git pull
-
 docker run --rm -v "$PWD":/app treeder/bump patch
 version=`cat VERSION`
 echo "version: $version"

@@ -1,4 +1,4 @@
-  FROM debian:buster AS base
+FROM debian:buster AS base
 
 RUN echo 'deb http://deb.debian.org/debian buster-backports main' > /etc/apt/sources.list.d/backports.list
 
@@ -11,6 +11,8 @@ RUN apt-get -y update &&  apt-get -y install libmicrohttpd-dev libjansson-dev \
   libavdevice-dev libavfilter-dev libswscale-dev \
   nginx \
   && apt-get clean 
+
+RUN apt-get install -t buster-backports meson && apt-get clean 
 
 WORKDIR /usr/local/src/
 
@@ -52,9 +54,6 @@ RUN git clone https://github.com/sctplab/usrsctp && \
   ./configure --prefix=/usr && \
   make && \
   sudo make install  
-  
-  
-RUN apt-get install -t buster-backports meson
 
 #libnice
 RUN git clone https://gitlab.freedesktop.org/libnice/libnice && \
@@ -88,8 +87,11 @@ RUN  git clone https://github.com/meetecho/janus-gateway.git && \
   make && \
   make install && make configs && ldconfig   
 
+RUN rm -rf /usr/local/src/*
+
 COPY conf/*.jcfg /opt/janus/etc/janus/
 COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY certs /opt/certs
 
 EXPOSE 8088 8089 8188 8989 5002 5004 8002 8004
 
