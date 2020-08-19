@@ -9,7 +9,7 @@ RUN apt-get -y update &&  apt-get -y install libmicrohttpd-dev libjansson-dev \
 	libconfig-dev pkg-config gengetopt libtool automake bison flex gettext \
   git cmake wget sudo rsync build-essential gtk-doc-tools graphviz doxygen golang-go  ninja-build meson \ 
   libavdevice-dev libavfilter-dev libswscale-dev \
-  nginx \
+  nginx libnginx-mod-rtmp ffmpeg \
   && apt-get clean 
 
 RUN apt-get install -t buster-backports meson && apt-get clean 
