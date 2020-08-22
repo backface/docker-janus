@@ -61,9 +61,10 @@ RUN git clone https://gitlab.freedesktop.org/libnice/libnice && \
   meson --prefix=/usr build && ninja -C build && sudo ninja -C build install
  
 # janus
-RUN  git clone https://github.com/meetecho/janus-gateway.git && \
+RUN  git clone https://github.com/backface/janus-gateway.git && \
   cd janus-gateway && \
-  git checkout v0.10.4 && \
+#  git checkout v0.10.4 && \
+  git checkout kick && \
   sh autogen.sh  && \
   ./configure \
     --prefix=/opt/janus \
