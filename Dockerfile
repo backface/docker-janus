@@ -63,7 +63,7 @@ RUN git clone https://gitlab.freedesktop.org/libnice/libnice && \
 # janus
 RUN  git clone https://github.com/meetecho/janus-gateway.git && \
   cd janus-gateway && \
-  git checkout v0.10.3 && \
+  git checkout v0.10.4 && \
   sh autogen.sh  && \
   ./configure \
     --prefix=/opt/janus \
