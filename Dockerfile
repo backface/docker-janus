@@ -19,7 +19,7 @@ WORKDIR /usr/local/src/
 #libwebsockets
 RUN git clone https://libwebsockets.org/repo/libwebsockets && \
   cd libwebsockets && \
-  git checkout v2.4-stable && \
+  git checkout v4.1-stable && \
   mkdir build && \
   cd build && \
   cmake -DLWS_MAX_SMP=1 -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_C_FLAGS="-fpic" -DLWS_IPV6="ON" .. && \
